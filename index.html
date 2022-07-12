@@ -4,38 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Squada+One&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div id="calc">
-        <div id="c-head">
-            <div>Cascia Memory B-IO</div>
-            <div>Browser calculator</div>
-        </div>
-        <div id="c-display">
-            <div class="display-digits">12345</div>
-        </div>
-        <div id="c-body">
-                <button class="two clear">AC</button>
-                <button class="del">C</button>
-                <button>/</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>*</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>-</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>+</button>
-                <button>0</button>
-                <button>.</button>
-                <button class="equals two">=</button>
+    <div id="calc-outline">
+        <div id="calc">
+            <div id="c-head">
+                <span style="font-family: 'Prosto One', cursive; font-size:18px"><b>Cascia</b></span>
+                <span>&nbsp</span>
+                <span style="font-family:Arial, Helvetica, sans-serif; font-size:12px; flex: 0 0 auto; ">MEMORY B-IO</span>
+                <div style="font-family:Arial, Helvetica, sans-serif; font-size:8.5px; color:rgb(42, 112, 158)"><b>BROWSER CALCULATOR</b></div>
+            </div>
+            <div id="c-display">
+                <div class="background digits">8.8.8.8.8.8.8.8.8.8.</div> <!--faint LCD background-->
+                <div class="input digits">12323.45</div>
+            </div>
+            <div id="c-body">
+                    <button class="two clear">AC</button>
+                    <button class="del">C</button>
+                    <button>÷</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>*</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>-</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>+</button>
+                    <button>0</button>
+                    <button>.</button>
+                    <button class="equals two">=</button>
+                </div>
             </div>
         </div>
     </div>
