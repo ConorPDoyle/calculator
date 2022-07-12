@@ -1,4 +1,8 @@
-#calc {
+/* *, *::before, *::after{
+    box-sizing: border-box;
+} */
+
+calc {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,6 +12,10 @@
 }
 
 #c-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-image: linear-gradient(90deg, #d7d7d7 0%,
      #a7a7a7 2%, #b8b8b8 3%, #d7d7d7 5%,#acacac 6%, #b1b1b1 7%,
      #d7d7d7 10%,#acacac 13%, #d7d7d7 15%,#acacac 17%, #afafaf 18%,
@@ -21,8 +29,18 @@
      #d7d7d7 78%,#a1a1a1 80%, #a7a7a7 82%,#9b9b9b 84%, #d7d7d7 86%, 
      #acacac 90%,#d7d7d7 92%, #a7a7a7 94%, #8b8b8b 95%,#d7d7d7 98%,
      #b9b9b9 99%, #b4b4b4 100%);
+    margin-top: 5px;
+    width: 240px;
+    height: 60px;
 }
 
-.row {
-    display: flex;
+#c-body {
+    width: 240px;
+    height: 60px; 
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.two {
+    grid-column-end: span 2;
 }
