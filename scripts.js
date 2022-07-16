@@ -65,7 +65,7 @@ function getNumber() {
 }
 
 function addDecimal() {
-    if (input.innerHTML.indexOf('.') == -1) { //only 1 decimal point allowed
+    if (input.innerHTML.indexOf('.') == -1 && input.innerHTML.length < 9) { //only 1 decimal point allowed
         input.innerHTML += '.';
         hasDecimal = true;
     } 
@@ -85,6 +85,7 @@ function clearCalculator() {
     secondValue = 0;
     result = 0;
     operator = null;
+    hasDecimal = false;
 }
 
 function add(a,b) {
