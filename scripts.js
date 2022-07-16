@@ -6,6 +6,7 @@ let result = '';
 let clearScreen = false;
 let hasDecimal = false;
 
+
 // Selectors
 const numberButtons = document.querySelectorAll('.number');
 const decimal = document.querySelector('.decimal')
@@ -17,6 +18,7 @@ const input = document.querySelector('.input')
 
 input.innerHTML = 0;
 
+
 // Button events
 numberButtons.forEach(button => {
     button.addEventListener('click', getNumber)
@@ -26,10 +28,12 @@ clearButton.addEventListener('click', clearCalculator)
 
 deleteButton.addEventListener('click', deleteNumbers)
 
+
 // Calculator behavior
 operatorButtons.forEach(button => {
     button.addEventListener('click', getOperator)
 })
+
 
 // Functions
 function getOperator() {
@@ -114,6 +118,7 @@ function divide (a,b) {
     }
     return a / b;
 }
+
 
 // Calculator operator function
 function operate(a, b, operator) {
