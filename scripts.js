@@ -37,16 +37,22 @@ operatorButtons.forEach(button => {
 
 // Functions
 function getOperator() {
-    if (result == '') {
-        secondValue = input.innerHTML;
+    if (operator == null || operator == '=') {
+        firstValue = input.innerHTML;
+        operator = this.innerHTML;
+        console.log(`First value: ${firstValue}. Second value: ${secondValue}. Operator: ${operator}`);
+        console.log(`The result is ${doOperation(firstValue, secondValue, operator)};`)
+        clearScreen = true;
     } else {
-        firstValue = result;
         secondValue = input.innerHTML;
+        result = doOperation(firstValue, secondValue, operator);
+        console.log(`First value: ${firstValue}. Second value: ${secondValue}. Operator: ${operator}`);
+        console.log(`The result is ${result};`)
+        input.innerHTML = result;
+        firstValue = result;
+        operator = this.innerHTML;
+        clearScreen = true;
     }
-    console.log(`Before result: ${result}.`);
-    operator = this.innerHTML;
-    result = operate(firstValue, secondValue, operator);
-    console.log(`After result: ${result}.`);
 }
 
 function getNumber() {
@@ -121,7 +127,7 @@ function divide (a,b) {
 
 
 // Calculator operator function
-function operate(a, b, operator) {
+function doOperation(a, b, operator) {
     switch (operator) {
         case '+': // operate(2, 3, '+')
             return add(a,b); // 5
