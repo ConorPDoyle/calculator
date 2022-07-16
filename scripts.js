@@ -22,8 +22,6 @@ numberButtons.forEach(button => {
     button.addEventListener('click', getNumber)
 })
 
-decimal.addEventListener('click', addDecimal)
-
 clearButton.addEventListener('click', clearCalculator)
 
 deleteButton.addEventListener('click', deleteNumbers)
@@ -50,6 +48,8 @@ function getOperator() {
 function getNumber() {
     if (input.innerHTML == 0 && this.innerHTML == 0) {
         return; // 0 stays '0', not '00' etc.
+    } else if (this.innerHTML == '.') {
+        addDecimal();
     } else if (input.innerHTML == 0 && this.innerHTML !== 0 &&
         hasDecimal == false) {
         input.innerHTML = ''; //replace zero w/ init value
@@ -58,14 +58,19 @@ function getNumber() {
         input.innerHTML += this.innerHTML;
     }
     if (clearScreen == true) { //makes next input start over again
-        input.innerHTML= '';
-        input.innerHTML += this.innerHTML;
+        if (this.innerHTML == '.') {
+            input.innerHTML = '0';
+            addDecimal();
+        } else {
+            input.innerHTML = '';
+            input.innerHTML += this.innerHTML;
+        }
         clearScreen = false;
     }
 }
 
 function addDecimal() {
-    if (input.innerHTML.indexOf('.') == -1 && input.innerHTML.length < 9) { //only 1 decimal point allowed
+    if (input.innerHTML.indexOf('.') == -1 && input.innerHTML.length < 9) { //only 1 decimal point allowed //length prevents extra space added to input
         input.innerHTML += '.';
         hasDecimal = true;
     } 
@@ -77,6 +82,9 @@ function deleteNumbers() {
     originalNum.length > 1 ? newNum = originalNum.slice(0, originalNum.length - 1) :
         newNum = 0; // don't delete display past 0
     input.innerHTML = newNum;
+    if (newNum.indexOf('.') == -1) {
+        hasDecimal = false;
+    }
 }
 
 function clearCalculator() {
