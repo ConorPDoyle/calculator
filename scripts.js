@@ -43,7 +43,7 @@ function getOperatorAndValues() {
             clearScreen = true;
     } else {                                   //Uses operator from before, makes new value the 'secondValue', does operation, marks screen to be cleared. Can do infinitely
             secondValue = input.innerHTML;
-            result = doOperation(firstValue, secondValue, operator);
+            result = truncateResult(doOperation(firstValue, secondValue, operator));
             input.innerHTML = result;
             firstValue = result;
             operator = this.innerHTML;
@@ -72,6 +72,14 @@ function getNumber() {
             input.innerHTML += this.innerHTML;
         }
         clearScreen = false;
+    }
+}
+
+function truncateResult(num) {
+    if (num > 999999999) {
+        return num.toExponential(3)
+    } else {
+        return Math.round(num*10000000)/10000000;
     }
 }
 
@@ -122,8 +130,6 @@ function divide(a, b) {
     }
 }
 
-let 
-
 // Calculator operator function
 function doOperation(a, b, operator) {
     switch (operator) {
@@ -136,6 +142,6 @@ function doOperation(a, b, operator) {
         case '/':
             return divide(a, b);
         default:
-            0; //changed from 0 to try and get = behavior correct
+            0;
     }
 }
