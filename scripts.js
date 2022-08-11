@@ -78,6 +78,8 @@ function getNumber() {
 function truncateResult(num) {
     if (num > 999999999) {
         return num.toExponential(3)
+    } else if (num == 'E'){
+        return 'E'
     } else {
         return Math.round(num*10000000)/10000000;
     }
