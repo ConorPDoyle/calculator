@@ -52,7 +52,7 @@ function getOperatorAndValues() {
 }
 
 function getNumber() {
-    if (input.innerHTML == 0 && this.innerHTML == 0) {
+    if (input.innerHTML == 0 && this.innerHTML == 0 && hasDecimal == false) {
         return; // repeated 0 inputs stays '0', not '00' or '000' etc.
     } else if (this.innerHTML == '.') {
         addDecimal();
